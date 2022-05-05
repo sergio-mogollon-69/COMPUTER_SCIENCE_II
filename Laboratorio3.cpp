@@ -137,7 +137,6 @@ void MenuDeOpciones(){
               edad(val,val2,val3,val4,val5,val6); break;
       case 4: cout<<"Ingrese x: "; cin>>val; NumPrimos(val); break;
       case 5: introducirValor(); break;
-
     }
     cout<<"Presione Enter para continuar...";
     cin.get(); cin.get();//pausa el sistema momentaneamente
