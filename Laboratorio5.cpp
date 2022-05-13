@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 using namespace std;
-
+//directivas de preprocesador
 #ifdef _WIN32 //condicional para limpiar la consola dependiendo del sistema operativo
   #include<windows.h>
 #endif  
@@ -88,7 +88,7 @@ void insertNodoOrdenado(Nodo_E3*& head, int dato){
     aux2=aux1;
     aux1=aux1->sig;
   }
-  if(head == aux1) head = newNodo;
+  if(head == aux1) head = newNodo; //si es que el nodo esta vacio
   else aux2->sig = newNodo;
   newNodo->sig = aux1;
 }
@@ -169,14 +169,14 @@ void insertNodoTailE4_int(Nodo_E4*& head, int dato, string _cadena){
   newNodo->ptrvoid=&(newNodo->infoType); //apuntamos a direccion de infoType
   *(string*)newNodo->ptrvoid = _cadena; //*(string*) para trabajar el void como string
   newNodo->sig = nullptr;
-  if(head == nullptr){
+  if(head == nullptr){ //para saber si la lista esta vacia
     head=newNodo;
     return;
   }
-  Nodo_E4* last = head;
-  while(last->sig != nullptr)// recorre la lista hasta el final
+  Nodo_E4* last = head; //se ubica en el head
+  while(last->sig != nullptr)// recorre la lista hasta el final para ubicar el nodo tail
     last=last->sig;
-  last->sig = newNodo;
+  last->sig = newNodo; //insertamos el nodo
 }
 void insertNodoTailE4_str(Nodo_E4*& head, string dato, string _cadena){
   Nodo_E4* newNodo = new Nodo_E4();
@@ -230,7 +230,7 @@ void insertNodoTailE4_char(Nodo_E4*& head, char dato, string _cadena){
 void buscarNodo_int(Nodo_E4* head, int dato){
   Nodo_E4* actual = new Nodo_E4();
   actual = head;
-  while(actual != nullptr){
+  while(actual != nullptr){ //recorremos la lista
     actual->ptrvoid = &(actual->Int);
     if(*(int*)actual->ptrvoid == dato){
       cout<<"Dato: "<<*(int*)actual->ptrvoid<<endl;
