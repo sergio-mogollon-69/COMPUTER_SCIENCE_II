@@ -83,7 +83,7 @@ void ordenarDescendentemente(Type* _array, int ini, int fin){
 
 int main(){
   int* ArrayEntero = createArray<int>(9);
-  float* ArrayFloat = createArray<float>(9);
+  float* ArrayFloat = createArray<float>(5);
 
   insertArray<int>(ArrayEntero,9);
   cout<<"ARRAY DE INT'S => ";
