@@ -18,7 +18,7 @@ bool Cola::empty(){
 
 void Cola::push(int num){
   Nodo* nuevoNodo = new Nodo(num); //creamos nuevo nodo a insertar
-  if(empty()){ //en el caso de que estuviera vacia la cola
+  if(empty()){
     primer = nuevoNodo;
     ultimo = primer;
   }else{
@@ -28,7 +28,7 @@ void Cola::push(int num){
     }
     aux->setPtrSig(nuevoNodo);
     aux = aux->getPtrSig();
-    ultimo = aux; //apuntamos ultimo al ultimo elemento agregado
+    ultimo = aux; //asignamos ultimo al elemento agregado
   }
   longitud++;
 }
@@ -57,7 +57,7 @@ int Cola::size(){
 
 void Cola::printCola(){
   if(empty()){
-    cout<<0<<endl; //si esta vacio muestra 0
+    cout<<0<<endl; //si esta vacio mostrar null
     return;
   } 
   while(!empty()){

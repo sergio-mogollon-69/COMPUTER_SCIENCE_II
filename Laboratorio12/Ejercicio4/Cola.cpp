@@ -18,7 +18,7 @@ bool Cola::empty(){
 
 void Cola::push(int num){
   Nodo* nuevoNodo = new Nodo(num); //creamos nuevo nodo a insertar
-  if(empty()){ //en el caso de que estuviera vacia la cola
+  if(empty()){
     primer = nuevoNodo;
     ultimo = primer;
   }else{
@@ -28,7 +28,7 @@ void Cola::push(int num){
     }
     aux->setPtrSig(nuevoNodo);
     aux = aux->getPtrSig();
-    ultimo = aux; //apuntamos ultimo al ultimo elemento agregado
+    ultimo = aux; //asignamos ultimo al elemento agregado
   }
   longitud++;
 }
@@ -57,7 +57,7 @@ int Cola::size(){
 
 void Cola::printCola(){
   if(empty()){
-    cout<<0<<endl; //si esta vacio muestra 0
+    cout<<0<<endl; //si esta vacio mostrar null
     return;
   } 
   while(!empty()){
@@ -65,4 +65,44 @@ void Cola::printCola(){
     this->pop(); //saca el primer elemento de la cola para continuar con el sig
   }
   cout<<endl;
+}
+
+void Cola::onlyShow(){
+  int longTemp = this->longitud, contador = 0;
+  int* arrayTemp = new int[longTemp];
+  if(empty()){
+    //cout<<"null"<<endl; //si esta vacio mostrar null
+    cout<<endl;
+    return;
+  }
+  while(!empty()){
+    arrayTemp[contador++] = this->front();
+    cout<<this->front()<<" -> "; //muestra el primer elemento
+    this->pop();
+  }
+  for(int i=0; i<longTemp; i++){
+    this->push(arrayTemp[i]);
+  }
+  delete arrayTemp;
+  cout<<endl;
+}
+
+bool Cola::buscar(int dato){
+  int longitudArray = this->longitud;
+  int* arrayTemp = new int[longitudArray];
+  int cont=0;
+  bool band = false;
+  while(!empty()){ //la pila solo permite el acceso al ultimo elemento insertado
+    if(this->front() == dato){
+      band = true;
+    }
+    arrayTemp[cont] = front();
+    cont++;
+    this->pop();
+  }
+  for(int i=0; i<longitudArray; i++)
+    this->push(arrayTemp[i]);
+  
+  delete arrayTemp;
+  return band;
 }
